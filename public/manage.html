@@ -61,6 +61,10 @@
           );
           editButton.innerText = "Edit";
 
+          editButton.addEventListener("click", () => {
+            window.location.href = `/edit.html?id=${post.id}`;
+          });
+
           const deleteButton = document.createElement("button");
           deleteButton.classList.add(
             "bg-red-500",

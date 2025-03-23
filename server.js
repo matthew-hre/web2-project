@@ -13,6 +13,16 @@ app.get("/api/posts", (req, res) => {
   res.json(blogPosts);
 });
 
+app.get("/api/posts/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const post = blogPosts.find((post) => post.id === id);
+  if (post) {
+    res.json(post);
+  } else {
+    res.status(404).send();
+  }
+});
+
 app.post("/api/posts", (req, res) => {
   const post = {
     id: currentId++,

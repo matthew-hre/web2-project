@@ -4,9 +4,10 @@ const app = express();
 const PORT = 3000;
 
 const blogPosts = [];
-const currentId = 0;
+let currentId = 0;
 
 app.use(express.json());
+app.use(express.static("public"));
 
 app.get("/api/posts", (req, res) => {
   res.json(blogPosts);

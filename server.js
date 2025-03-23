@@ -30,7 +30,7 @@ app.post("/api/posts", async (req, res) => {
   const { title, content } = req.body;
   const result = await pool.query(
     "INSERT INTO posts (title, content, date) VALUES ($1, $2, $3) RETURNING *",
-    [title, content, new Date().toISOString()]
+    [title, content, new Date().toISOString()],
   );
   res.json(result.rows[0]);
 });
@@ -40,7 +40,7 @@ app.put("/api/posts/:id", async (req, res) => {
   const { title, content } = req.body;
   const result = await pool.query(
     "UPDATE posts SET title = $1, content = $2 WHERE id = $3 RETURNING *",
-    [title, content, id]
+    [title, content, id],
   );
   if (result.rows.length > 0) {
     res.json(result.rows[0]);
@@ -53,7 +53,7 @@ app.delete("/api/posts/:id", async (req, res) => {
   const id = parseInt(req.params.id);
   const result = await pool.query(
     "DELETE FROM posts WHERE id = $1 RETURNING *",
-    [id]
+    [id],
   );
   if (result.rows.length > 0) {
     res.status(204).send();

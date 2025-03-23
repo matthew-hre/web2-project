@@ -37,7 +37,7 @@
             "justify-between",
             "border-b",
             "border-gray-300",
-            "py-4"
+            "py-4",
           );
           const h1 = document.createElement("h1");
           h1.classList.add("text-2xl", "font-bold");
@@ -57,7 +57,7 @@
             "px-4",
             "rounded",
             "mr-4",
-            "hover:bg-blue-700"
+            "hover:bg-blue-700",
           );
           editButton.innerText = "Edit";
 
@@ -72,11 +72,11 @@
             "py-2",
             "px-4",
             "rounded",
-            "hover:bg-red-700"
+            "hover:bg-red-700",
           );
           deleteButton.innerText = "Delete";
           deleteButton.addEventListener("click", () =>
-            deletePost(post.id, post.title)
+            deletePost(post.id, post.title),
           );
 
           buttons.appendChild(editButton);
